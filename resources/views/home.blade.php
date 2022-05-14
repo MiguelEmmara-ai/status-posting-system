@@ -12,7 +12,7 @@
                 </p>
             </div>
             <div class="buttons">
-                <a class="btn btn-primary" role="button" href="./about.php">About This assignment</a>
+                <a class="btn btn-primary" role="button" href="/about">About This assignment</a>
             </div>
         </div>
     </section>

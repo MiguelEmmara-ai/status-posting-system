@@ -21,6 +21,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/poststatusform', function () {
+    return view('poststatusform');
+});
+
+Route::get('/searchstatusform', function () {
+    return view('searchstatusform');
+});
+
 Route::get('/about', function () {
     return view('about');
 });
