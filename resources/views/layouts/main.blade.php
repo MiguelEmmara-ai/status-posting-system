@@ -33,14 +33,14 @@
                 <div class="col-sm-6 col-md-3 item">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="poststatusform.php">Post A New Status</a></li>
-                        <li><a href="searchstatusform.php">Search A Status</a></li>
+                        <li><a href="/poststatusform">Post A New Status</a></li>
+                        <li><a href="/searchstatusform">Search A Status</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6 col-md-3 item">
                     <h3>About</h3>
                     <ul>
-                        <li><a href="about.php"><strong>About This Assignment</strong><br></a></li>
+                        <li><a href="/about"><strong>About This Assignment</strong><br></a></li>
                         <li></li>
                     </ul>
                 </div>
