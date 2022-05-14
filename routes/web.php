@@ -25,8 +25,16 @@ Route::get('/poststatusform', function () {
     return view('poststatusform');
 });
 
+Route::get('/poststatusprocess', function () {
+    return view('poststatusprocess');
+});
+
 Route::get('/searchstatusform', function () {
     return view('searchstatusform');
+});
+
+Route::get('/searchstatusprocess', function () {
+    return view('searchstatusprocess');
 });
 
 Route::get('/about', function () {
