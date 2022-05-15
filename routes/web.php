@@ -18,11 +18,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        "title" => "Home"
+    ]);
 });
 
 Route::get('/poststatusform', function () {
-    return view('poststatusform');
+    return view('poststatusform', [
+        "title" => "Post Status Form"
+    ]);
 });
 // TODO
 // Route::get('/poststatusprocess', function () {
@@ -32,13 +36,19 @@ Route::get('poststatusprocess', [PostController::class, 'index']);
 Route::post('store-form', [PostController::class, 'store']);
 
 Route::get('/searchstatusform', function () {
-    return view('searchstatusform');
+    return view('searchstatusform', [
+        "title" => "Search Status Form"
+    ]);
 });
 
 Route::get('/searchstatusprocess', function () {
-    return view('searchstatusprocess');
+    return view('searchstatusprocess', [
+        "title" => "Search Status Result"
+    ]);
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        "title" => "About"
+    ]);
 });
