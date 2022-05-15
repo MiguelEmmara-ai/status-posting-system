@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,18 +35,14 @@ Route::get('/poststatusform', function () {
 // });
 Route::get('poststatusprocess', [PostController::class, 'index']);
 Route::post('store-form', [PostController::class, 'store']);
+Route::resource('posts', PostController::class);
 
 Route::get('/searchstatusform', function () {
     return view('searchstatusform', [
         "title" => "Search Status Form"
     ]);
 });
-
-Route::get('/searchstatusprocess', function () {
-    return view('searchstatusprocess', [
-        "title" => "Search Status Result"
-    ]);
-});
+Route::get('/searchstatusprocess', [PostController::class, 'show']);
 
 Route::get('/about', function () {
     return view('about', [

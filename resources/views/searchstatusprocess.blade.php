@@ -10,7 +10,27 @@
                 <h2 class="text-center">Search For Status<br></h2>
                 <p class="text-center">Status Information<br></p>
 
-                <?php
+                @foreach ($posts as $post)
+                    <div class="d-flex justify-content-center">
+                        <div class="card w-75" style="width: 10rem;">
+                            <div class="card-body">
+                                Status: {{ $post->status_content }}
+                                <br>
+                                Status Code: {{ $post->status_code }}
+                                <br>
+                                <br>
+                                Share: {{ $post->share }}
+                                <br>
+                                Date Posted: {{ $post->input_date }}
+                                <br>
+                                Permission: {{ $post->permission }}
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                @endforeach
+
+                {{-- @php
                 function getStatus()
                 {
                     require_once 'settings.php';
@@ -68,7 +88,7 @@
                     }
                 }
                 getStatus();
-                ?>
+                @endphp --}}
 
             </div>
         </div>

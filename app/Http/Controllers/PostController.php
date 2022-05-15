@@ -1,5 +1,5 @@
 <?php
-// TODO
+
 namespace App\Http\Controllers;
 
 use App\Models\Post;
@@ -8,30 +8,102 @@ use Illuminate\Routing\Controller;
 
 class PostController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Post $post)
     {
-        return view('poststatusprocess');
-        return view('poststatusprocess', [
-            "title" => "Post Status Result"
-        ]);
-    }
-    public function store(Request $request)
-    {
-        $request->validate([
-            'status_code' => 'required',
-            'status_content' => 'required',
-            'share' => 'required',
-            'input_date' => 'required',
-            'permission' => 'required'
-        ]);
+        $posts = Post::latest()->paginate(5);
 
-        $post = new Post;
-        $post->status_code = $request->statusCode;
-        $post->status_content = $request->status;
-        $post->share = $request->gridRadios;
-        $post->input_date = $request->date;
-        $post->permission = $request->input('permissionCheckBox');
-        $post->save();
-        return redirect('poststatusprocess')->with('status', 'Blog Post Form Data Has Been inserted');
+        return view('searchstatusprocess', [
+            "title" => "Search Status Result",
+            "posts" => Post::all()
+        ]);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Post $post)
+    {
+        $posts = Post::latest()->paginate(5);
+
+        return view('searchstatusprocess', [
+            "title" => "Search Status Result",
+            "posts" => Post::all()
+        ]);
+    }
+
+    // /**
+    //  * Show the form for creating a new resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function create()
+    // {
+    //     return view('poststatusform');
+    // }
+
+    // /**
+    //  * Store a newly created resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'status_code' => 'required',
+    //         'status_content' => 'required',
+    //         'share' => 'required',
+    //         'input_date' => 'required',
+    //         'permission' => 'required'
+    //     ]);
+
+    //     // $post = new Post;
+    //     // $post->status_code = $request->statusCode;
+    //     // $post->status_content = $request->status;
+    //     // $post->share = $request->gridRadios;
+    //     // $post->input_date = $request->date;
+    //     // $post->permission = $request->input('permissionCheckBox');
+    //     // $post->save();
+
+    //     Post::create($request->all());
+
+    //     return redirect('poststatusprocess')->with('success', 'Blog Post Form Data Has Been inserted');
+    // }
+
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  \App\Models\Post  $post
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function show(Post $post)
+    // {
+    //     // return view('searchstatusprocess', compact('post'));
+    //     return view('searchstatusprocess', [
+    //         "title" => "Post",
+    //         "post" => $post
+    //     ]);
+    // }
+
+    // /**
+    //  * Remove the specified resource from storage.
+    //  *
+    //  * @param  \App\Models\Post  $post
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function destroy(Post $post)
+    // {
+    //     $post->delete();
+
+    //     return redirect()->route('home')
+    //         ->with('success', 'Product deleted successfully');
+    // }
 }
