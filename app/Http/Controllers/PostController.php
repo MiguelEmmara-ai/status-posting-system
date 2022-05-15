@@ -39,44 +39,44 @@ class PostController extends Controller
         ]);
     }
 
-    // /**
-    //  * Show the form for creating a new resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function create()
-    // {
-    //     return view('poststatusform');
-    // }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('poststatusform');
+    }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'status_code' => 'required',
-    //         'status_content' => 'required',
-    //         'share' => 'required',
-    //         'input_date' => 'required',
-    //         'permission' => 'required'
-    //     ]);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'status_code' => 'required',
+            'status_content' => 'required',
+            'share' => 'required',
+            'input_date' => 'required',
+            'permission' => 'required'
+        ]);
 
-    //     // $post = new Post;
-    //     // $post->status_code = $request->statusCode;
-    //     // $post->status_content = $request->status;
-    //     // $post->share = $request->gridRadios;
-    //     // $post->input_date = $request->date;
-    //     // $post->permission = $request->input('permissionCheckBox');
-    //     // $post->save();
+        $post = new Post;
+        $post->status_code = $request->statusCode;
+        $post->status_content = $request->status;
+        $post->share = $request->gridRadios;
+        $post->input_date = $request->date;
+        $post->permission = $request->input('permissionCheckBox');
+        $post->save();
 
-    //     Post::create($request->all());
+        Post::create($request->all());
 
-    //     return redirect('poststatusprocess')->with('success', 'Blog Post Form Data Has Been inserted');
-    // }
+        return redirect('poststatusprocess')->with('success', 'Blog Post Form Data Has Been inserted');
+    }
 
     // /**
     //  * Display the specified resource.

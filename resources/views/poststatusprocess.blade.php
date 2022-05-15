@@ -8,7 +8,7 @@
             <form style="max-width: 600px;">
                 <h2 class="text-center">Post Status Information</h2>
                 <div class="mb-3">
-                    <?php
+                    @php
                     function createTableIfNotExist()
                     {
                         require "settings.php";
@@ -207,7 +207,7 @@
                     }
 
                     addPost();
-                    ?>
+                    @endphp
 
                 </div>
                 <div class="d-grid gap-2 d-md-block">
