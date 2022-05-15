@@ -1,6 +1,5 @@
-<!-- TODO -->
 <?php
-
+// TODO
 namespace App\Http\Controllers;
 
 use App\Models\Post;
@@ -12,9 +11,20 @@ class PostController extends Controller
     public function index()
     {
         return view('poststatusprocess');
+        return view('poststatusprocess', [
+            "title" => "Post Status Result"
+        ]);
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'status_code' => 'required',
+            'status_content' => 'required',
+            'share' => 'required',
+            'input_date' => 'required',
+            'permission' => 'required'
+        ]);
+
         $post = new Post;
         $post->status_code = $request->statusCode;
         $post->status_content = $request->status;
