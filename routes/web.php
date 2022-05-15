@@ -33,7 +33,7 @@ Route::get('/poststatusform', function () {
 // Route::get('/poststatusprocess', function () {
 //     return view('poststatusprocess');
 // });
- Route::post('poststatusprocess', [PostController::class, 'store']);
+ Route::post('store-form', [PostController::class, 'store']);
 //Route::resource('posts', PostController::class);
 
 Route::get('/searchstatusform', function () {

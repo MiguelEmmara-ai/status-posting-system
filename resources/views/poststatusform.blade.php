@@ -4,7 +4,7 @@
 @section('container')
     @include('partials.nav')
     <section class="contact-clean">
-        <form method="POST" action="poststatusprocess" class="needs-validation">
+        <form method="POST" action="{{ url('store-form') }}" class="needs-validation">
             @csrf
             <h2 class="text-center">Post A New Status</h2>
             <div class="mb-3">
