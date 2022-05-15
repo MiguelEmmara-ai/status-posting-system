@@ -13,10 +13,8 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function index()
     {
-        $posts = Post::latest()->paginate(5);
-
         return view('searchstatusprocess', [
             "title" => "Search Status Result",
             "posts" => Post::all()
@@ -29,13 +27,15 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Request $request)
     {
-        $posts = Post::latest()->paginate(5);
+        $post = Post::select("*")
+            ->where("status_content", $request->status)
+            ->get();
 
         return view('searchstatusprocess', [
             "title" => "Search Status Result",
-            "posts" => Post::all()
+            "posts" => $post
         ]);
     }
 

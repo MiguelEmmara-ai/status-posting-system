@@ -1,94 +1,43 @@
-{{-- //TODO --}}
-
 @extends('layouts.main')
 
 @section('container')
     @include('partials.nav')
+
     <section class="newsletter-subscribe">
         <div class="container text-center">
             <div class="intro">
                 <h2 class="text-center">Search For Status<br></h2>
                 <p class="text-center">Status Information<br></p>
 
-                @foreach ($posts as $post)
-                    <div class="d-flex justify-content-center">
-                        <div class="card w-75" style="width: 10rem;">
-                            <div class="card-body">
-                                Status: {{ $post->status_content }}
-                                <br>
-                                Status Code: {{ $post->status_code }}
-                                <br>
-                                <br>
-                                Share: {{ $post->share }}
-                                <br>
-                                Date Posted: {{ $post->input_date }}
-                                <br>
-                                Permission: {{ $post->permission }}
+
+                @if (count($posts) > 0)
+                    @foreach ($posts as $post)
+                        <div class="d-flex justify-content-center">
+                            <div class="card w-75" style="width: 10rem;">
+                                <div class="card-body">
+                                    Status: {{ $post->status_content }}
+                                    <br>
+                                    Status Code: {{ $post->status_code }}
+                                    <br>
+                                    <br>
+                                    Share: {{ $post->share }}
+                                    <br>
+                                    Date Posted: {{ $post->input_date }}
+                                    <br>
+                                    Permission: {{ $post->permission }}
+                                </div>
                             </div>
                         </div>
+                    @endforeach
+                @else
+                    <div class="container d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col"><img src="https://c.tenor.com/pnjwPjNNxq8AAAAi/doraemon-manga.gif"
+                                    alt="Sad Doraemon" width="250" height="250"> <br>Status not found. Please try a
+                                different keyword</div>
+                        </div>
                     </div>
-                    <br>
-                @endforeach
-
-                {{-- @php
-                function getStatus()
-                {
-                    require_once 'settings.php';
-                    $searchKeyword = $_GET['status'];
-                
-                    if (!empty($_GET[$searchKeyword]) || $searchKeyword == null) {
-                        echo '<div class="container d-flex justify-content-center">';
-                        echo '<div class="row">';
-                        echo '<div class="col">';
-                        echo '<img src="https://c.tenor.com/pnjwPjNNxq8AAAAi/doraemon-manga.gif" alt="Sad Doraemon" width="250" height="250"> <br>';
-                        echo 'The search string is empty. Please enter a keyword to search.';
-                        echo '<br>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                    } else {
-                        // Create connection
-                        $conn = new mysqli($host, $user, $pswd, $dbnm);
-                
-                        // Check connection
-                        if ($conn->connect_error) {
-                            die('Connection failed: ' . $conn->connect_error);
-                        }
-                
-                        $sql = "SELECT * FROM post where status_content LIKE '%$searchKeyword%';";
-                        $result = $conn->query($sql);
-                
-                        if (!$result) {
-                            echo 'Fatal Error Occurred, Please Check The Database Table!';
-                        } else {
-                            if ($result->num_rows > 0) {
-                                // Output data of each row using card style
-                                while ($row = $result->fetch_assoc()) {
-                                    echo '<div class="d-flex justify-content-center">';
-                                    echo '<div class="card w-75" style="width: 10rem;">';
-                                    echo '<div class="card-body">';
-                                    echo 'Status: ' . $row['status_content'] . '<br> Status Code: ' . $row['status_code'] . '<br> <br> Share: ' . $row['share'] . '<br> Date Posted: ' . $row['input_date'] . '<br> Permission: ' . $row['permission'] . '<br>';
-                                    echo '</div>';
-                                    echo '</div>';
-                                    echo '</div>';
-                                    echo '<br>';
-                                }
-                            } else {
-                                echo '<div class="container d-flex justify-content-center">';
-                                echo '<div class="row">';
-                                echo '<div class="col">';
-                                echo '<img src="https://c.tenor.com/pnjwPjNNxq8AAAAi/doraemon-manga.gif" alt="Sad Doraemon" width="250" height="250"> <br>';
-                                echo 'Status not found. Please try a different keyword';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '</div>';
-                            }
-                        }
-                        $conn->close();
-                    }
-                }
-                getStatus();
-                @endphp --}}
+                @endif
 
             </div>
         </div>
