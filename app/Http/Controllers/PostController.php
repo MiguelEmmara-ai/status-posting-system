@@ -29,6 +29,10 @@ class PostController extends Controller
      */
     public function show(Request $request)
     {
+        $validated = $request->validate([
+            'status_content' => 'required',
+        ]);
+
         $post = Post::query()
             ->where('status_content', 'LIKE', '%' . $request->status . '%')
             ->orWhere('status_content', 'LIKE', $request->status)
