@@ -16,7 +16,7 @@ For This Version I Use Laravel Web Framework
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Demo
-https://assignment01laravel.miguelemmara.me/
+[assignment01laravel.miguelemmara.me](https://assignment01laravel.miguelemmara.me/)
 
 ## Screenshots
 ![Screenshot 1](https://github.com/MiguelEmmara-ai/Assignment01-Comp721/blob/master/screenshots/screencapture-localhost-assignment01.png)
