@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +12,7 @@ use App\Http\Controllers\PostController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,31 +20,22 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
     ]);
 });
-
-Route::get('/poststatusform', function () {
-    return view('poststatusform', [
-        "title" => "Post Status Form"
-    ]);
-});
-// TODO
-// Route::get('/poststatusprocess', function () {
-//     return view('poststatusprocess');
-// });
- Route::post('store-form', [PostController::class, 'store']);
-//Route::resource('posts', PostController::class);
-
-Route::get('/searchstatusform', function () {
-    return view('searchstatusform', [
-        "title" => "Search Status Form"
-    ]);
-});
-Route::get('/searchstatusprocess', [PostController::class, 'show']);
 
 Route::get('/about', function () {
     return view('about', [
-        "title" => "About"
+        "title" => "About",
     ]);
 });
+
+Route::get('/poststatusform', [PostController::class, 'create']);
+Route::post('/poststatusform', [PostController::class, 'store']);
+
+Route::get('/searchstatusform', function () {
+    return view('searchstatusform', [
+        "title" => "Search Status Form",
+    ]);
+});
+Route::get('/searchstatusprocess', [PostController::class, 'show']);
