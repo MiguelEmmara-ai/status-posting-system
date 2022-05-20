@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         return view('searchstatusprocess', [
             "title" => "Search Status Result",
-            "posts" => Post::all()
+            "posts" => Post::all(),
         ]);
     }
 
@@ -35,7 +35,7 @@ class PostController extends Controller
 
         return view('searchstatusprocess', [
             "title" => "Search Status Result",
-            "posts" => $post
+            "posts" => $post,
         ]);
     }
 
@@ -46,7 +46,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('poststatusform');
+        return view('poststatusform', [
+            'title' => 'Post Status Form',
+        ]);
     }
 
     /**
@@ -57,53 +59,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'status_code' => 'required',
+        $validated = $request->validate([
+            'status_code' => 'required|unique:posts',
             'status_content' => 'required',
-            'share' => 'required',
+            'share' => 'required|in:Public,Friends,Only Me',
             'input_date' => 'required',
-            'permission' => 'required'
+            'permission' => 'required',
         ]);
 
-        $post = new Post;
-        $post->status_code = $request->statusCode;
-        $post->status_content = $request->status;
-        $post->share = $request->gridRadios;
-        $post->input_date = $request->date;
-        $post->permission = $request->input('permissionCheckBox');
-        $post->save();
+        // Convert Array to String for checkbox
+        $arrayToString = implode(', ', $request->input('permission'));
+        $validated['permission'] = $arrayToString;
 
-        Post::create($request->all());
+        Post::create($validated);
 
-        return redirect('poststatusprocess')->with('success', 'Blog Post Form Data Has Been inserted');
+        return redirect('/')->with('success', 'Blog Post Form Data Has Been inserted');
     }
-
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  \App\Models\Post  $post
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show(Post $post)
-    // {
-    //     // return view('searchstatusprocess', compact('post'));
-    //     return view('searchstatusprocess', [
-    //         "title" => "Post",
-    //         "post" => $post
-    //     ]);
-    // }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  \App\Models\Post  $post
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy(Post $post)
-    // {
-    //     $post->delete();
-
-    //     return redirect()->route('home')
-    //         ->with('success', 'Product deleted successfully');
-    // }
 }
