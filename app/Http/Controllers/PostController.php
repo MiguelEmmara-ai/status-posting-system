@@ -73,6 +73,6 @@ class PostController extends Controller
 
         Post::create($validated);
 
-        return redirect('/')->with('success', 'Blog Post Form Data Has Been inserted');
+        return redirect('/poststatusprocess')->with('success', 'Blog Post Form Data Has Been inserted');
     }
 }
