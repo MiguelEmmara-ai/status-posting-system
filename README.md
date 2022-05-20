@@ -18,6 +18,23 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Demo
 [assignment01laravel.miguelemmara.me](https://assignment01laravel.miguelemmara.me/)
 
+## Getting Started
+```shell
+git clone https://github.com/MiguelEmmara-ai/Assignment01-Comp721-Laravel
+cd Assignment01-Comp721-Laravel
+composer install
+cp .env.example .env
+```
+Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
+
+Then we can run
+```shell
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
+
+
 ## Screenshots
 ![Screenshot 1](https://github.com/MiguelEmmara-ai/Assignment01-Comp721/blob/master/screenshots/screencapture-localhost-assignment01.png)
 
