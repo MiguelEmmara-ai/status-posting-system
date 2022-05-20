@@ -33,6 +33,12 @@ Route::get('/about', function () {
 Route::get('/poststatusform', [PostController::class, 'create']);
 Route::post('/poststatusform', [PostController::class, 'store']);
 
+Route::get('/poststatusprocess', function () {
+    return view('poststatusprocess', [
+        "title" => "Post Status Form",
+    ]);
+});
+
 Route::get('/searchstatusform', function () {
     return view('searchstatusform', [
         "title" => "Search Status Form",
