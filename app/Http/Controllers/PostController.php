@@ -29,8 +29,9 @@ class PostController extends Controller
      */
     public function show(Request $request)
     {
-        $post = Post::select("*")
-            ->where("status_content", $request->status)
+        $post = Post::query()
+            ->where('status_content', 'LIKE', '%' . $request->status . '%')
+            ->orWhere('status_content', 'LIKE', $request->status)
             ->get();
 
         return view('searchstatusprocess', [
