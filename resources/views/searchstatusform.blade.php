@@ -15,6 +15,8 @@
         @endif
 
         <form method="GET" action="searchstatusprocess" class="needs-validation">
+            @csrf
+
             <h2 class="text-center">Search For A Status</h2>
             <div class="mb-3">
                 <input class="form-control" type="text" name="status" placeholder="Enter A Status" required>
