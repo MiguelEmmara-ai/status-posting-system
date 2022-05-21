@@ -9,7 +9,6 @@
                 <h2 class="text-center">Search For Status<br></h2>
                 <p class="text-center">Status Information<br></p>
 
-
                 @if (count($posts) > 0)
                     @foreach ($posts as $post)
                         <div class="d-flex justify-content-center">
@@ -28,6 +27,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     @endforeach
                 @else
                     <div class="container d-flex justify-content-center">

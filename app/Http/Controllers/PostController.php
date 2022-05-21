@@ -34,8 +34,7 @@ class PostController extends Controller
         ]);
 
         $post = Post::query()
-            ->where('status_content', 'LIKE', '%' . $request->status . '%')
-            ->orWhere('status_content', 'LIKE', $request->status)
+            ->where('status_content', 'LIKE', '%' . $validated['status_content'] . '%')
             ->get();
 
         return view('searchstatusprocess', [
