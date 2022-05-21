@@ -19,7 +19,7 @@
 
             <h2 class="text-center">Search For A Status</h2>
             <div class="mb-3">
-                <input class="form-control" type="text" name="status" placeholder="Enter A Status" required>
+                <input class="form-control" type="text" name="status_content" placeholder="Enter A Status" required>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success" type="submit">Search</button>
