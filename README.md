@@ -24,6 +24,9 @@ git clone https://github.com/MiguelEmmara-ai/Assignment01-Comp721-Laravel
 cd Assignment01-Comp721-Laravel
 composer install OR composer update
 cp .env.example .env
+nano .env << Configure .env
+php artisan key:generate
+php artisan migrate:fresh
 ```
 Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
 
