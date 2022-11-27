@@ -45,6 +45,14 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Software Architecture
+
+Laravel framework app deployed serverless on aws using bref.sh
+<br>
+![Screenshot 1](https://github.com/MiguelEmmara-ai/status-posting-system/blob/master/public/screenshots/Aws%20Cloud%20Architecture%20-%20Laravel%20Serverless.png)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Screenshots
 ![Screenshot 1](https://github.com/MiguelEmmara-ai/Assignment01-Comp721/blob/master/screenshots/screencapture-localhost-assignment01.png)
 
